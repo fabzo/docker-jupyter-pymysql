@@ -62,4 +62,6 @@ ENV XDG_CACHE_HOME /home/jovyan/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions /home/jovyan
 
+ADD start.sh /start.sh
+
 USER jovyan
