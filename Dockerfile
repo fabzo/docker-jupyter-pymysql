@@ -63,5 +63,3 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions /home/jovyan
 
 USER jovyan
-
-ADD magics/connect.py /home/jovyan/.ipython/extensions/connect.py
