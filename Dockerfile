@@ -59,7 +59,7 @@ RUN cd /tmp && \
 ENV XDG_CACHE_HOME /root/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
 
-ADD start.sh /start.sh
+COPY start.sh /usr/local/bin/
 
 RUN mkdir /opt/jupyter-volume
 WORKDIR /opt/jupyter-volume

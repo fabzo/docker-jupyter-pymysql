@@ -1,3 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-start-notebook.sh --NotebookApp.token='' --NotebookApp.allow_root=True
+set -e
+
+echo "Execute the command: $*"
+exec $*
