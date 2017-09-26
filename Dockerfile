@@ -12,8 +12,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-USER jovyan
-
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
@@ -58,10 +56,7 @@ RUN cd /tmp && \
     fix-permissions /opt/conda
 
 # Import matplotlib the first time to build the font cache.
-ENV XDG_CACHE_HOME /home/jovyan/.cache/
-RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
-    fix-permissions /home/jovyan
+ENV XDG_CACHE_HOME /root/.cache/
+RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot"
 
 ADD start.sh /start.sh
-
-USER jovyan
